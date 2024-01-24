@@ -31,7 +31,6 @@ class TagSerializer(serializers.ModelSerializer):
         return super(TagSerializer, self).to_internal_value(data)
 
     def create(self, validated_data):
-        # Avoid setting ID when creating a new tag
         return Tag.objects.create(title=validated_data['title'])
 
 class SnippetSerializer(serializers.ModelSerializer):
